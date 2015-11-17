@@ -1,0 +1,102 @@
+/*------------------------------------------------------------------
+
+[Layout Stylesheet]
+
+    Project:        Cloudatlas Admin
+    Version:        1.0
+    Last change:    10/31/2012
+
+
+[Table of contents]
+
+    1. Global
+
+-------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------
+[1. Checkbox]
+*/
+ 
+/** postion style **/
+.popup {
+    position: absolute;
+    z-index: 15;
+}
+.left-top-corner {
+    top: -9px;
+    left: -9px;
+}
+.left-bottom-corner {
+    top: -9px;
+    bottom: -9px;
+}
+.thumbnails .pic {
+    position: relative;
+}
+
+.popup.right-top {
+	top: 0;
+	right: 0;
+	background-color: rgba(0, 0, 0, 0.01);
+}
+
+/** i鏍峰紡 **/
+i {
+    vertical-align: middle;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+}
+
+/** 澶嶉�妗嗘牱寮� **/
+i.img-checkbox {
+    background-position: -150px -225px;
+    width: 19px;
+    height: 19px;
+}
+i.img-checkbox:hover {
+    background-position: -175px -225px;
+}
+label.cloud-checkbox-wrapper {
+    background-color: #C9CACA;
+    padding: 6px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.cloud-checkbox-wrapper input.item-checkbox {
+    margin: 0;
+    opacity: 0;
+    filter: alpha(opacity =     0);
+    display: inline;
+    z-index: -1;
+}
+
+/** 閫変腑鏃剁殑鏍峰紡 **/
+.item-checked label.cloud-checkbox-wrapper {
+    background-color:#00a5de;
+}
+.item-checked i.img-checkbox:hover,
+.item-checked i.img-checkbox {
+    background-position: -200px -225px;
+}
+
+
+
+i.img-plus, i.img-corner-cover, i.img-corner-public, i.img-corner-privacy {
+	width: 58px;
+	height: 58px;
+}
+i.img-corner-public {
+	background-position: -72px -425px;
+}
+i.img-corner-privacy {
+	background-position: 1px -425px;
+}
+i.img-empty-album {
+	background: url("http://s5.suc.itc.cn/ux_cloud_atlas/asset/d/img_album_bg.png") no-repeat 80px -100px;
+	width: 283px;
+	height: 283px;
+}	
+
+
+ 

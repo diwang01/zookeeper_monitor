@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="letv.zookeeper.monitor.dao.ZkClusterDao">
+	<resultMap type="letv.zookeeper.monitor.model.ZkClusterInfo" id="ZkClusterResultMap">
+        <id property="clusterId" column="cluster_id"/>
+        <result property="clusterName" column="cluster_name"/>
+        <result property="serverList" column="server_list"/>
+        <result property="serverAccount" column="server_account"/>
+        <result property="description" column="description"/>
+    </resultMap>
+
+	<select id="getClusterInfo" resultType="letv.zookeeper.monitor.model.ZkClusterInfo" resultMap="ZkClusterResultMap" >
+		<![CDATA[
+			select * from zookeeper_cluster limit 1
+		]]>
+	</select>
+	
+	
+	<update id="updateClusterInfo" parameterType="letv.zookeeper.monitor.model.ZkClusterInfo">   
+	    UPDATE zookeeper_cluster
+	    	SET server_account = #{serverAccount},
+	           cluster_name = #{clusterName},
+	           server_list = #{serverList},
+	           description = #{description}
+	    	WHERE cluster_id = #{clusterId};
+	</update>
+	
+	<insert id="insertClusterInfo" parameterType="letv.zookeeper.monitor.model.ZkClusterInfo" useGeneratedKeys="true" keyProperty="clusterId">
+	<selectKey keyProperty="clusterId" resultType="int">
+        select LAST_INSERT_ID()
+    </selectKey>
+	insert into zookeeper_cluster(server_account, cluster_name, server_list, description) 
+	values(#{serverAccount}, #{clusterName}, #{serverList}, #{description})
+	</insert>
+</mapper>
