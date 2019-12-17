@@ -8,4 +8,4 @@ CREATE TABLE `zookeeper_cluster` (
   `server_list` varchar(255) NOT NULL,
   `description` varchar(255) default NULL,
   PRIMARY KEY  (`cluster_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf-8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
